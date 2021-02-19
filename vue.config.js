@@ -1,5 +1,6 @@
 module.exports = {
   lintOnSave: false,
+
   pluginOptions: {
     electronBuilder: {
       preload: 'src/preload.js',
@@ -8,5 +9,9 @@ module.exports = {
         extraResources: ['db/local.db']
       }
     }
-  }
+  },
+
+  transpileDependencies: [
+    'vuetify'
+  ]
 }

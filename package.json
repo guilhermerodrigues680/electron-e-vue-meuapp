@@ -6,21 +6,24 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
+    "clear": "rm -rf dist_electron && echo $?-OK! || echo $?-ERRO!",
     "electron:build": "vue-cli-service electron:build",
-    "electron:build:win": "vue-cli-service electron:build --windows",
     "electron:build:linux": "vue-cli-service electron:build --linux",
     "electron:build:macos": "vue-cli-service electron:build --macos",
+    "electron:build:win": "vue-cli-service electron:build --windows",
     "electron:serve": "vue-cli-service electron:serve",
     "electron:serve:debug": "vue-cli-service electron:serve --debug",
-    "clear": "rm -rf dist_electron && echo $?-OK! || echo $?-ERRO!",
     "postinstall": "electron-builder install-app-deps",
     "postuninstall": "electron-builder install-app-deps"
   },
   "main": "background.js",
   "dependencies": {
+    "@mdi/font": "^5.9.55",
     "core-js": "^3.6.5",
+    "roboto-fontface": "*",
     "sqlite3": "^5.0.2",
-    "vue": "^2.6.11"
+    "vue": "^2.6.11",
+    "vuetify": "^2.4.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
@@ -31,7 +34,11 @@
     "electron-devtools-installer": "^3.1.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
+    "sass": "^1.32.0",
+    "sass-loader": "^10.0.0",
     "vue-cli-plugin-electron-builder": "~2.0.0-rc.6",
-    "vue-template-compiler": "^2.6.11"
+    "vue-cli-plugin-vuetify": "~2.1.0",
+    "vue-template-compiler": "^2.6.11",
+    "vuetify-loader": "^1.7.0"
   }
 }

@@ -1,35 +1,93 @@
 <template>
-  <div>
-    <h1>Cadastro De Pessoa</h1>
+  <v-container>
+    <v-row class="text-center">
+      <v-col cols="12">
+        <v-img
+          :src="require('../assets/register.png')"
+          class="my-3"
+          contain
+          height="200"
+        />
+      </v-col>
 
-    <form v-on:submit.prevent="cadastrar(nome, idade)">
-      <label class="display-block">
-        <span>Nome:</span>
-        <input v-model.trim="nome" type="text">
-      </label>
-      <label class="display-block">
-        <span>Idade:</span>
-        <input v-model.number="idade" type="number">
-      </label>
-      <span class="display-block">
-        <input type="submit" value="Cadastrar">
-      </span>
-    </form>
+      <v-col class="mb-4">
+        <h1 class="display-2 font-weight-bold mb-3">
+          Cadastro De Pessoa
+        </h1>
 
-    <h2>Pessoas cadastradas</h2>
-    
-    <ul>
-      <li v-for="pessoa in reversedPessoas" :key="pessoa.PES_ID">
-        {{ pessoa }}
-      </li>
-    </ul>
+        <p class="subheading font-weight-regular">
+          Aplicação com banco de dados embutido SQLite. <span class="font-weight-bold">'db/local.db'</span>
+        </p>
+      </v-col>
 
-    <div>
-      Nós estamos usando Node.js {{processVersions.node}},
-      Chromium {{processVersions.chrome}},
-      e Electron {{processVersions.electron}}.
-    </div>
-  </div>
+      <v-col
+        class="mb-5"
+        cols="12"
+      >
+        <v-form v-on:submit.prevent="cadastrar(nome, idade)">
+          <v-row justify="center">
+            <v-col
+              cols="12"
+              md="4"
+            >
+              <v-text-field
+                v-model.trim="nome"
+                label="Nome"
+                required
+              ></v-text-field>
+            </v-col>
+
+            <v-col
+              cols="12"
+              md="4"
+            >
+              <v-text-field
+                v-model.number="idade"
+                label="Idade"
+                required
+                type="number"
+              ></v-text-field>
+            </v-col>
+
+            <v-col
+              cols="12"
+              md="4"
+            >
+              <v-btn
+                color="success"
+                type="submit"
+                block
+                large
+              >Cadastrar</v-btn>
+            </v-col>
+          </v-row>
+        </v-form>
+      </v-col>
+
+      <v-col
+        class="mb-5"
+        cols="12"
+      >
+        <h2 class="headline font-weight-bold mb-3">
+          Pessoas cadastradas
+        </h2>
+
+        <div>
+          <div v-for="pessoa in reversedPessoas" :key="pessoa.PES_ID">
+            <p class="ma-0">{{ pessoa }}</p>
+          </div>
+        </div>
+      </v-col>
+
+       <v-col class="mb-4">
+        <p class="subheading font-weight-regular">
+          Nós estamos usando Node.js {{processVersions.node}},
+          Chromium {{processVersions.chrome}},
+          e Electron {{processVersions.electron}}.
+        </p>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
@@ -81,10 +139,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-.display-block {
-  color: red;
-  display: block;
-}
-</style>
