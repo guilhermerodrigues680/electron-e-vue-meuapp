@@ -20,5 +20,16 @@ npm run build
 npm run lint
 ```
 
+# Electron
+
+### A
+```
+npx electron-builder install-app-deps --platform linux
+```
+
+Mac -> zip .app do dmg
+Linux -> zip linux unpacked 'dist_electron/linux-unpacked'
+Win -> npx electron-builder install-app-deps --platform win32
+
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
