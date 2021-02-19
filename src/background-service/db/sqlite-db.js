@@ -7,11 +7,7 @@ function getConnection() {
   
   console.debug(__dirname, __static, isBuild)
   
-  const dbPath = path.join(
-    (isBuild ? __dirname : __static),
-    (isBuild ? '../' : '../'),
-    'src/db/local.db'
-  )
+  const dbPath = path.join((isBuild ? __dirname : __static), '../db/local.db')
 
   console.log(dbPath)
   

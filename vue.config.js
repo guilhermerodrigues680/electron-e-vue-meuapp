@@ -5,7 +5,7 @@ module.exports = {
       preload: 'src/preload.js',
       // nodeIntegration: true
       builderOptions: {
-        extraResources: ['src/db/local.db']
+        extraResources: ['db/local.db']
       }
     }
   }

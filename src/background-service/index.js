@@ -22,6 +22,16 @@ function init() {
     event.returnValue = { data: { pessoas }, error: null };
   });
 
+  ipcMain.on('get-process-versions', function (event, ..._) {
+    const processVersions = {
+      chrome: process.versions.chrome,
+      node: process.versions.node,
+      electron: process.versions.electron
+    }
+
+    event.returnValue = { data: { processVersions }, error: null }
+  });
+
 }
 
 export {

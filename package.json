@@ -12,6 +12,7 @@
     "electron:build:macos": "vue-cli-service electron:build --macos",
     "electron:serve": "vue-cli-service electron:serve",
     "electron:serve:debug": "vue-cli-service electron:serve --debug",
+    "clear": "rm -rf dist_electron && echo $?-OK! || echo $?-ERRO!",
     "postinstall": "electron-builder install-app-deps",
     "postuninstall": "electron-builder install-app-deps"
   },

@@ -1,10 +1,10 @@
 'use strict'
 
-import { app, protocol, BrowserWindow } from 'electron'
+import { app, protocol, BrowserWindow, screen } from 'electron'
 import { createProtocol } from 'vue-cli-plugin-electron-builder/lib'
 import installExtension, { VUEJS_DEVTOOLS } from 'electron-devtools-installer'
 import * as path from 'path'
-import * as service from './bg-service'
+import * as service from './background-service'
 const isDevelopment = process.env.NODE_ENV !== 'production'
 
 // Scheme must be registered before the app is ready
@@ -12,12 +12,12 @@ protocol.registerSchemesAsPrivileged([
   { scheme: 'app', privileges: { secure: true, standard: true } }
 ])
 
-async function createWindow() {
+async function createWindow(width=800, height=600) {
   // Create the browser window.
   const win = new BrowserWindow({
-    width: 800,
-    height: 600,
-    backgroundColor: '#FFFFFF',
+    width: width,
+    height: height,
+    backgroundColor: '#80FFFFFF',
     webPreferences: {
       
       // Use pluginOptions.nodeIntegration, leave this alone
@@ -65,7 +65,10 @@ app.on('ready', async () => {
       console.error('Vue Devtools failed to install:', e.toString())
     }
   }
-  createWindow()
+
+  const workAreaSize = screen.getPrimaryDisplay().workAreaSize
+  console.debug(workAreaSize.width, workAreaSize.height)
+  createWindow(workAreaSize.width, workAreaSize.height)
 })
 
 // Exit cleanly on request from parent process in development mode.
